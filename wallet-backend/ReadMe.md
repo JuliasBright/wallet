@@ -35,7 +35,7 @@ Before diving into the setup, make sure you have the following prerequisites in 
    Initialize your PostgreSQL database by running the following command:
 
    ```bash
-   createdb wallet_app_db
+   createdb wallet
    ```
 
 2. **Migrations**:
@@ -66,7 +66,7 @@ Before diving into the setup, make sure you have the following prerequisites in 
    python app.py
    ```
 
-   Access the application locally at `http://localhost:8000`.
+   Access the application locally at `http://localhost:5000`.
 
 ## Code Linting
 
@@ -79,6 +79,8 @@ flake8
 Fine-tune linting rules according to project-specific coding standards in the `.flake8` configuration file.
 
 ## Authentication
+
+You will need to create account using /creat-account endpoint.
 
 Our robust authentication system is powered by JWT (JSON Web Tokens). Accessing the system is a breeze—simply send a POST request to `/login` with valid credentials to obtain a JWT token.
 
@@ -99,10 +101,10 @@ If containerization aligns with your preferences, Docker offers a streamlined so
    Initialize a Docker container, exposing it on port 8000:
 
    ```bash
-   docker run -p 8000:8000 flask-wallet-app
+   docker run -p 5000:5000 flask-wallet-app
    ```
 
-   The application can now be accessed within the Docker container at `http://localhost:8000`.
+   The application can now be accessed within the Docker container at `http://localhost:5000`.
 
 ## API Documentation
 
