@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "180c58a9-c4a7-4adf-8218-5ddb2c90f7c3",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26136217"
+	},
+	"item": [
+		{
+			"name": "List all endpoints",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List all endpoints",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.3.7 Python/3.9.18"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Sep 2023 10:19:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "829"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"routes\": [\n        {\n            \"endpoint\": \"list_endpoints\",\n            \"methods\": \"HEAD,GET,OPTIONS\",\n            \"path\": \"/\"\n        },\n        {\n            \"endpoint\": \"create_account\",\n            \"methods\": \"POST,OPTIONS\",\n            \"path\": \"/create_account\"\n        },\n        {\n            \"endpoint\": \"login\",\n            \"methods\": \"POST,OPTIONS\",\n            \"path\": \"/login\"\n        },\n        {\n            \"endpoint\": \"get_balance\",\n            \"methods\": \"HEAD,GET,OPTIONS\",\n            \"path\": \"/balance/<username>\"\n        },\n        {\n            \"endpoint\": \"get_transaction_history\",\n            \"methods\": \"HEAD,GET,OPTIONS\",\n            \"path\": \"/transaction_history/<username>\"\n        },\n        {\n            \"endpoint\": \"credit_account\",\n            \"methods\": \"POST,OPTIONS\",\n            \"path\": \"/credit/<username>\"\n        },\n        {\n            \"endpoint\": \"debit_account\",\n            \"methods\": \"POST,OPTIONS\",\n            \"path\": \"/debit/<username>\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create-Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"tests\",\n    \"password\": \"1234\",\n    \"initial_balance\": 1000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/create_account",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"create_account"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create-Account",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"tests\",\n    \"password\": \"1234\",\n    \"initial_balance\": 1000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/create_account",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"create_account"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.3.7 Python/3.9.18"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Sep 2023 10:20:04 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Account created successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"tests\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"tests\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.3.7 Python/3.9.18"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Sep 2023 10:20:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "286"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTYzNzIyNiwianRpIjoiNmE2OGEzMjQtMGZlOS00NDU1LTk1MTgtZDQwNmY4ZTZhYzZlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNjk1NjM3MjI2LCJleHAiOjE2OTU2MzgxMjZ9.B6xvyesN2yWQ1LwRy2z3etliRMeOSmrmDfYO05KC0UE\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Balance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTQ4ODc5NSwianRpIjoiMWJlNzdjNWYtMGJjNy00NGNhLThhNTgtZDA3MWMzZGQxYmM5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2OTU0ODg3OTUsImV4cCI6MTY5NTQ4OTY5NX0.wcxyPLsAF_QPCOUcQ0WzlJYxzSlnxETHxGc2PtaucQc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/balance/<username>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"balance",
+						"<username>"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Balance",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/balance/tests",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"balance",
+								"tests"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.3.7 Python/3.9.18"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 25 Sep 2023 10:20:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "22"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"balance\": 1000\n}"
+				}
+			]
+		},
+		{
+			"name": "Transaction History",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTQ4ODc5NSwianRpIjoiMWJlNzdjNWYtMGJjNy00NGNhLThhNTgtZDA3MWMzZGQxYmM5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2OTU0ODg3OTUsImV4cCI6MTY5NTQ4OTY5NX0.wcxyPLsAF_QPCOUcQ0WzlJYxzSlnxETHxGc2PtaucQc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/transaction_history/<username>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"transaction_history",
+						"<username>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5NTQ4ODc5NSwianRpIjoiMWJlNzdjNWYtMGJjNy00NGNhLThhNTgtZDA3MWMzZGQxYmM5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2OTU0ODg3OTUsImV4cCI6MTY5NTQ4OTY5NX0.wcxyPLsAF_QPCOUcQ0WzlJYxzSlnxETHxGc2PtaucQc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/credit/<username>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"credit",
+						"<username>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Debit Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/debit/<username>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"debit",
+						"<username>"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

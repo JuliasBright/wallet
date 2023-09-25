@@ -4,9 +4,11 @@ from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_cors import CORS
 import redis
 
 app = Flask(__name__)
+CORS(app)
 
 app.config['JWT_SECRET_KEY'] = 'utfkvhbkljgyfvgvWFSGEhgvjky'
 jwt = JWTManager(app)

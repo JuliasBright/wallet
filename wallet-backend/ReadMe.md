@@ -106,6 +106,15 @@ If containerization aligns with your preferences, Docker offers a streamlined so
 
    The application can now be accessed within the Docker container at `http://localhost:5000`.
 
+3. **Testing the app***:
+   Locate src/tests
+
+   ```bash
+   pytest app.py
+   ```
+
+   This should run all the tests
+
 ## API Documentation
 
 Our API documentation shines through Swagger. To access the Swagger UI and explore the API, point your browser to `http://localhost:8000/api/spec.html` when the application is running.
