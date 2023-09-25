@@ -7,7 +7,7 @@ import redis
 
 app = Flask(__name__)
 
-app.config['JWT_SECRET_KEY'] = 'utfkvhbkljgyfvgvWFSGEhgvjky'  
+app.config['JWT_SECRET_KEY'] = 'utfkvhbkljgyfvgvWFSGEhgvjky'
 jwt = JWTManager(app)
 
 # Configure SQLAlchemy connection
@@ -16,9 +16,9 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # Configure Redis connection
-app.config['REDIS_HOST'] = 'localhost'  
-app.config['REDIS_PORT'] = 6379  
-app.config['REDIS_DB'] = 0 
+app.config['REDIS_HOST'] = 'localhost'
+app.config['REDIS_PORT'] = 6379
+app.config['REDIS_DB'] = 0
 
 # Create a Redis connection
 redis_conn = redis.StrictRedis(
@@ -35,8 +35,10 @@ class User(db.Model):
     password = db.Column(db.String(120), nullable=False)
     balance = db.Column(db.Float, default=0.0)
 
-# Placeholder for storing user accounts and transactions 
+
+# Placeholder for storing user accounts and transactions
 accounts = {}
+
 class Transactions(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False)
@@ -75,7 +77,7 @@ def create_account():
         # Hash the password before storing it
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
-       # Store the user data in the database
+        # Store the user data in the database
         user = User(username=username, password=hashed_password)
         db.session.add(user)
         db.session.commit()
@@ -132,7 +134,7 @@ def get_transaction_history(username):
         })
 
     return jsonify({"transaction_history": transaction_history}), 200
-    
+
 @app.route('/credit/<username>', methods=['POST'])
 @jwt_required()
 def credit_account(username):
@@ -165,6 +167,8 @@ def debit_account(username):
             return jsonify({"error": "Username not found"}), 404
     else:
         return jsonify({"error": "Invalid data format"}), 400
+
+
 if __name__ == '__main__':
     port = 5000
     app.run(debug=True, port=port)
